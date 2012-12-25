@@ -24,21 +24,23 @@
         </div>
         
         <script type="text/javascript">
-            //app.initialize();
+            app.initialize();
 
             $(document).bind("deviceready", function () {
-                $('#cameraButton').bind('tap', function () {
-                    alert('click');
-                    navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
-                });
-
-                $('#accelerometerButton').bind('tap', function () {
-                    alert('click2');
-                    navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerError);
-                });
-
-                alert('ready!');
+                alert(' device ready!');
             });
+
+            $('#cameraButton').bind('tap', function () {
+                alert('click');
+                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+            });
+
+            $('#accelerometerButton').bind('tap', function () {
+                alert('click2');
+                navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerError);
+            });
+
+
 
 
             function onCameraSuccess(imageData) { var image = document.getElementById('cameraImage'); image.src = "data:image/jpeg;base64," + imageData; }
