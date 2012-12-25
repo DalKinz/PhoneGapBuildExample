@@ -30,7 +30,7 @@
                 navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerError);
             });
 
-            function onCameraSuccess(imageData) { $('#cameraImage').attr('src', "data:image/jpeg;base64," + imageData);}
+            function onCameraSuccess(imageURI) { alert('camera success'); $('#cameraImage').attr('src', imageURI); }
             function onCameraFail(message) { alert('Failed because: ' + message); }
 
             function onAccelerometerSuccess(acceleration) { alert('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n'); }
@@ -40,7 +40,6 @@
         <a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
         <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
         
-        <p class="jqm-version"></p>
         <img id="cameraImage" src="#" />
     </body>
 </html>
