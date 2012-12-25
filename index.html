@@ -27,12 +27,12 @@
             app.initialize();
 
             $(document).bind("deviceready", function () {
-                $('cameraButton').bind('tap', function () {
+                $('#cameraButton').bind('tap', function () {
                     alert('click');
                     navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
                 });
 
-                $('accelerometerButton').bind('tap', function () {
+                $('#accelerometerButton').bind('tap', function () {
                     alert('click2');
                     navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerError);
                 });
