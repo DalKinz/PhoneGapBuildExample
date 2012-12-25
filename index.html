@@ -29,16 +29,18 @@
             document.addEventListener("deviceready", onDeviceReady, false);
             // Cordova is ready   
             function onDeviceReady() {
-                $(".cameraButton").bind("click", function (event, ui) {
+                $("cameraButton").bind("click", function (event, ui) {
                     navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
                 });
 
-                $(".accelerometerButton").bind("click", function (event, ui) {
+                $("accelerometerButton").bind("click", function (event, ui) {
                     navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerError);
                 });
 
                 alert('ready!');
             }
+
+            
 
             function onCameraSuccess(imageData) { var image = document.getElementById('cameraImage'); image.src = "data:image/jpeg;base64," + imageData; }
             function onCameraFail(message) { alert('Failed because: ' + message); }
@@ -48,8 +50,8 @@
 
         </script>
         <a href="demo.html">Demo</a>
-        <a href="#" id="cameraButton" data-role="button">Take picture</a>
-        <a href="#" id="accelerometerButton" data-role="button">Get Accelerometer Data</a>
+        <a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
+        <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
         
         <p class="jqm-version"></p>
         <img id="cameraImage" />
