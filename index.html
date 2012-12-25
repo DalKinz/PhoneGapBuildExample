@@ -12,49 +12,35 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script src="jquery.mobile-1.2.0"></script>
 
-        <title>Hello World</title>
+        <title>Cordova & jQuery Mobile examples</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        
         <script type="text/javascript">
             app.initialize();
 
             $(document).bind("deviceready", function () {
-                alert(' device ready!');
+                //alert(' device ready!');
             });
 
             $('#cameraButton').bind('tap', function () {
-                alert('click');
-                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
             });
 
             $('#accelerometerButton').bind('tap', function () {
-                alert('click2');
                 navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerError);
             });
 
-
-
-
-            function onCameraSuccess(imageData) { var image = document.getElementById('cameraImage'); image.src = "data:image/jpeg;base64," + imageData; }
+            function onCameraSuccess(imageData) { $('#cameraImage').attr('src', "data:image/jpeg;base64," + imageData);}
             function onCameraFail(message) { alert('Failed because: ' + message); }
 
             function onAccelerometerSuccess(acceleration) { alert('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n'); }
             function onAccelerometerError() { alert('onError!'); }
-
         </script>
         <a href="demo.html">Demo</a>
         <a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
         <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
         
         <p class="jqm-version"></p>
-        <img id="cameraImage" />
+        <img id="cameraImage" src="#" />
     </body>
 </html>
