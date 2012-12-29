@@ -17,10 +17,10 @@
     <body>
         <script>
             function onCameraSuccess(imageURI) { alert('camera success'); $('#cameraImage').attr('src', imageURI); }
-            function onCameraFail(message) { alert('Failed because: ' + message); }
+            function onCameraFail(message) {$('#popupMessage').popup('Failed because: ' + message);}
 
-            function onAccelerometerSuccess(acceleration) { alert('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n'); }
-            function onAccelerometerError() { alert('onError!'); }
+            function onAccelerometerSuccess(acceleration) { $('#popupMessage').popup('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n'); }
+            function onAccelerometerError() {$('#popupMessage').popup('Accelerometer error');}
             
             app.initialize();
 
@@ -33,7 +33,7 @@
             }); */
             
             $('#cameraButton').bind('tap', function () {
-                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI});
+                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});
             });
 
             $('#accelerometerButton').bind('tap', function () {
@@ -44,6 +44,8 @@
         <a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
         <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
         
-        <img id="cameraImage" src="#" />
+        <img id="cameraImage" src="#" width="100" Height="100" />
+        
+        <div id="popupMessage" data-role="popup" />
     </body>
 </html>
