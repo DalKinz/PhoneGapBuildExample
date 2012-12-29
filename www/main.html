@@ -3,23 +3,24 @@
     <head>
         <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
-	    <script type="text/javascript" src="js/jquery.js"></script>
-	    <script type="text/javascript" src="js/cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile-1.2.0.js"></script>
+	    <link rel="stylesheet"  href="./css/themes/default/jquery.mobile-1.2.0.css" />
+	    <script type="text/javascript" src="./js/jquery.js"></script>
+	    <script type="text/javascript" src="./js/cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="./js/index.js"></script>
+        <script type="text/javascript" src="./js/jquery.mobile-1.2.0.js"></script>
 
         <title>Cordova jQuery Mobile examples</title>
     </head>
     <body>
         <script>
-            function onCameraSuccess(imageURI) { $('#cameraImage').attr('src', imageURI); }
+            function onCameraSuccess(imageURI) {alert('test'); $('#cameraImage').attr('src', imageURI); }
             function onCameraFail(message) {
                 $('#popupMessage').html('Failed because: ' + message);
                 $('#popupMessage').popup('open');
             }
 
             function onAccelerometerSuccess(acceleration) { 
+                alert('test');
                 $('#popupMessage').html('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n');
                 $('#popupMessage').popup('open'); 
             }
