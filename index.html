@@ -33,7 +33,7 @@
             }); */
             
             $('#cameraButton').bind('tap', function () {
-                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: destinationType.FILE_URI});
+                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI});
             });
 
             $('#accelerometerButton').bind('tap', function () {
