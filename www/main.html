@@ -13,6 +13,7 @@
     </head>
     <body>
         <script>
+            alert('loading');
             function onCameraSuccess(imageURI) {alert('test'); $('#cameraImage').attr('src', imageURI); }
             function onCameraFail(message) {
                 $('#popupMessage').html('Failed because: ' + message);
