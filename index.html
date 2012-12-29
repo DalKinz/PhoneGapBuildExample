@@ -16,11 +16,20 @@
     </head>
     <body>
         <script>
-            function onCameraSuccess(imageURI) { alert('camera success'); $('#cameraImage').attr('src', imageURI); }
-            function onCameraFail(message) {$('#popupMessage').popup('Failed because: ' + message);}
+            function onCameraSuccess(imageURI) { $('#cameraImage').attr('src', imageURI); }
+            function onCameraFail(message) {
+                $('#popupMessage').html('Failed because: ' + message);
+                $('#popupMessage').popup('open');
+            }
 
-            function onAccelerometerSuccess(acceleration) { $('#popupMessage').popup('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n'); }
-            function onAccelerometerError() {$('#popupMessage').popup('Accelerometer error');}
+            function onAccelerometerSuccess(acceleration) { 
+                $('#popupMessage').html('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n');
+                $('#popupMessage').popup('open'); 
+            }
+            function onAccelerometerFail() {
+                $('#popupMessage').html('Accelerometer error');
+                $('#popupMessage').popup('open');
+            }
             
             app.initialize();
 
@@ -37,7 +46,7 @@
             });
 
             $('#accelerometerButton').bind('tap', function () {
-                navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerError);
+                navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);
             });
         </script>
         <a href="demo.html">Demo</a>
