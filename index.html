@@ -8,8 +8,8 @@
 	    <script src="js/jquery.js"></script>
 	    <script src="docs/_assets/js/jqm-docs.js"></script>
 	    <script src="js/jquery.mobile-1.2.0.js"></script>
-        <script type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script src="cordova-2.2.0.js"></script>
+        <script src="js/index.js"></script>
         <script src="jquery.mobile-1.2.0"></script>
 
         <title>Cordova & jQuery Mobile examples</title>
@@ -19,9 +19,13 @@
             app.initialize();
 
             $(document).bind("deviceready", function () {
-                //alert(' device ready!');
+                alert(  'Device Name: '     + device.name     + '<br />' + 
+                        'Device Cordova: '  + device.cordova + '<br />' + 
+                        'Device Platform: ' + device.platform + '<br />' + 
+                        'Device UUID: '     + device.uuid     + '<br />' + 
+                        'Device Version: '  + device.version  + '<br />';);
             });
-
+            
             $('#cameraButton').bind('tap', function () {
                 navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, destinationType: destinationType.FILE_URI});
             });
