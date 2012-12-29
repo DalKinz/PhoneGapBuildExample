@@ -43,10 +43,12 @@
             
             
             $('#cameraButton').bind('tap', function () {
+                alert('clicked camera');
                 navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});
             });
 
             $('#accelerometerButton').bind('tap', function () {
+                alert('clicked accelerometer');
                 navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);
             });
         </script>
