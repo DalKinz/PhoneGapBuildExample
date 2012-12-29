@@ -1,58 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
+<!DOCTYPE html>
+
+<html class="ui-mobile-rendering">
+
+	<head>
+
+		<title></title>
+
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
-	    <script type="text/javascript" src="js/jquery.js"></script>
-	    <script type="text/javascript" src="js/cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile-1.2.0.js"></script>
 
-        <title>Cordova jQuery Mobile examples</title>
-    </head>
-    <body>
-        <script>
-            function onCameraSuccess(imageURI) { $('#cameraImage').attr('src', imageURI); }
-            function onCameraFail(message) {
-                $('#popupMessage').html('Failed because: ' + message);
-                $('#popupMessage').popup('open');
-            }
+		<script>
 
-            function onAccelerometerSuccess(acceleration) { 
-                $('#popupMessage').html('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n');
-                $('#popupMessage').popup('open'); 
-            }
-            function onAccelerometerFail() {
-                $('#popupMessage').html('Accelerometer error');
-                $('#popupMessage').popup('open');
-            }
-            
-            app.initialize();
+			window.location='./main.html';
 
-            /* $(document).bind("deviceready", function () {
-                alert(  'Device Name: '     + device.name     + '<br />' + 
-                        'Device Cordova: '  + device.cordova + '<br />' + 
-                        'Device Platform: ' + device.platform + '<br />' + 
-                        'Device UUID: '     + device.uuid     + '<br />' + 
-                        'Device Version: '  + device.version  + '<br />');
-            }); */
-            
-            
-            
-            $('#cameraButton').bind('tap', function () {
-                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});
-            });
+		</script>
 
-            $('#accelerometerButton').bind('tap', function () {
-                navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);
-            });
-        </script>
-        <a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
-        <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
-        
-        <img id="cameraImage" src="#" width="100" Height="100" />
-        
-        <div id="popupMessage" data-role="popup"></div>
-    </body>
+	<body>		
+
+	</body>
+
 </html>
+﻿
