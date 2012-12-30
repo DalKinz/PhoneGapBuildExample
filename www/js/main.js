@@ -24,9 +24,12 @@ function onAccelerometerFail() {
     $('#popupMessage').popup('open');
 }
 
-alert('loading');
-app.initialize();
-document.addEventListener("deviceready", onDeviceReady, false);
+function init(){
+    alert('loading');
+    app.initialize();
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
 
 
 /*$(document).bind("deviceready", function () {
