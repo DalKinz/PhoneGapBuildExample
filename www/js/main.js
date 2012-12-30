@@ -13,15 +13,19 @@ function onAccelerometerFail() {
     $('#popupMessage').popup('open');
 }
 
+function onDeviceReady(){
+    alert('deviceready');
+    $('#cameraButton').bind('tap', function () {alert('clicked camera');
+    navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});});
+
+    $('#accelerometerButton').bind('tap', function () { alert('clicked accelerometer');
+    navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);})
+}
+
 function init(){
     alert('loading');
     app.initialize();
-    document.addEventListener("deviceready", function(){    alert('deviceready');
-                                                            $('#cameraButton').bind('tap', function () {alert('clicked camera');
-                                                            navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});});
-
-                                                            $('#accelerometerButton').bind('tap', function () { alert('clicked accelerometer');
-                                                            navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);});},true);
+    document.addEventListener("deviceready", onDeviceReady,false);
     alert('done loading');
 }
 
