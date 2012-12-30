@@ -1,6 +1,11 @@
 
 function onDeviceReady() {
     alert('deviceready');
+    $('#cameraButton').bind('tap', function () {alert('clicked camera');
+                                                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});});
+
+    $('#accelerometerButton').bind('tap', function () { alert('clicked accelerometer');
+                                                        navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);});
 }
 
 
@@ -24,23 +29,11 @@ app.initialize();
 document.addEventListener("deviceready", onDeviceReady, false);
 
 
-$(document).bind("deviceready", function () {
+/*$(document).bind("deviceready", function () {
     alert('deviceready');
     alert(  'Device Name: '     + device.name     + '<br />' + 
             'Device Cordova: '  + device.cordova + '<br />' + 
             'Device Platform: ' + device.platform + '<br />' + 
             'Device UUID: '     + device.uuid     + '<br />' + 
             'Device Version: '  + device.version  + '<br />');
-});
-
-
-
-$('#cameraButton').bind('tap', function () {
-    alert('clicked camera');
-    navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});
-});
-
-$('#accelerometerButton').bind('tap', function () {
-    alert('clicked accelerometer');
-    navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);
-});
+});*/
