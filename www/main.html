@@ -2,62 +2,20 @@
 <html>
     <head>
         <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
         <script src="http://debug.phonegap.com/target/target-script-min.js#0a6281d4-4956-11e2-8838-12313d1744da"></script>
-	    <script type="text/javascript" src="js/jquery.js"></script>
-	    <script type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile-1.2.0.js"></script>
-
+        <script src="js/jquery.js"></script>
+        <script src="cordova-2.2.0.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/main.js"></script>
         <title>Cordova jQuery Mobile examples</title>
     </head>
     <body>
-        <script>
-            alert('loading');
-            function onCameraSuccess(imageURI) {$('#cameraImage').attr('src', imageURI); }
-            function onCameraFail(message) {
-                $('#popupMessage').html('Failed because: ' + message);
-                $('#popupMessage').popup('open');
-            }
-
-            function onAccelerometerSuccess(acceleration) {
-                $('#popupMessage').html('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' + 'Acceleration Z: ' + acceleration.z + '\n' + 'Timestamp: ' + acceleration.timestamp + '\n');
-                $('#popupMessage').popup('open');
-            }
-            function onAccelerometerFail() {
-                $('#popupMessage').html('Accelerometer error');
-                $('#popupMessage').popup('open');
-            }
-            
-            app.initialize();
-
-            $(document).bind("deviceready", function () {
-                alert('deviceready');
-                alert(  'Device Name: '     + device.name     + '<br />' + 
-                        'Device Cordova: '  + device.cordova + '<br />' + 
-                        'Device Platform: ' + device.platform + '<br />' + 
-                        'Device UUID: '     + device.uuid     + '<br />' + 
-                        'Device Version: '  + device.version  + '<br />');
-            });
-            
-            
-            
-            $('#cameraButton').bind('tap', function () {
-                alert('clicked camera');
-                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});
-            });
-
-            $('#accelerometerButton').bind('tap', function () {
-                alert('clicked accelerometer');
-                navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);
-            });
-        </script>
         <a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
         <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
-        
         <img id="cameraImage" src="#" width="100" height="100" />
-        
         <div id="popupMessage" data-role="popup"></div>
     </body>
 </html>
