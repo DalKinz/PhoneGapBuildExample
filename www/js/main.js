@@ -1,14 +1,3 @@
-
-function onDeviceReady() {
-    alert('deviceready');
-    $('#cameraButton').bind('tap', function () {alert('clicked camera');
-                                                navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});});
-
-    $('#accelerometerButton').bind('tap', function () { alert('clicked accelerometer');
-                                                        navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);});
-}
-
-
 function onCameraSuccess(imageURI) {$('#cameraImage').attr('src', imageURI); }
 function onCameraFail(message) {
     $('#popupMessage').html('Failed because: ' + message);
@@ -27,7 +16,13 @@ function onAccelerometerFail() {
 function init(){
     alert('loading');
     app.initialize();
-    document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", function(){    alert('deviceready');
+                                                            $('#cameraButton').bind('tap', function () {alert('clicked camera');
+                                                            navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});});
+
+                                                            $('#accelerometerButton').bind('tap', function () { alert('clicked accelerometer');
+                                                            navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);});},true);
+    alert('done loading');
 }
 
 
