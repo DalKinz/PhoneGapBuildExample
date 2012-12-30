@@ -25,7 +25,7 @@ function onDeviceReady(){
 function init(){
     alert('loading');
     document.addEventListener("deviceready", onDeviceReady,false);
-    app.initialize();
+    //app.initialize();
     alert('done loading');
 }
 
