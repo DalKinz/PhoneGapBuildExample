@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>QUnit Example</title>
+    <title>Run Tests</title>
     <link rel="stylesheet" href="qunit-1.10.0.css">
     <script src="http://debug.phonegap.com/target/target-script-min.js#0a6281d4-4956-11e2-8838-12313d1744da"></script>
     <script src="../js/jquery.js"></script>
@@ -11,8 +11,17 @@
     <script src="../js/main.js"></script>
 </head>
 <body>
-  <div id="qunit" data-role="page"></div>
-  <script src="qunit-1.10.0.js"></script>
-  <script src="tests-main.js"></script>
+    <div id="mainPage" data-role="page">
+        <div data-role="header"><h1>Run Tests</h1></div> 
+        <div data-role="content">
+            <div id="qunit"></div>
+        </div>
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+            <div id="popupMessage" data-role="popup"></div>
+        </div>
+    </div>
+    <script src="qunit-1.10.0.js"></script>
+    <script src="tests-main.js"></script>
 </body>
 </html>
