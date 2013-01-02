@@ -47,10 +47,6 @@ function onDeviceReady(){
     $('#storageButton').bind('tap', );
 }
 
-//function init(){
-//    document.addEventListener("deviceready", onDeviceReady,false);
-//}
-
-
-
-$(document).bind("deviceready", onDeviceReady);
+function init(){
+    document.addEventListener("deviceready", onDeviceReady,false);
+}
