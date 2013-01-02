@@ -9,13 +9,31 @@
         <script src="cordova-2.2.0.js"></script>
         <script src="js/jquery.mobile-1.2.0.js"></script>
         <script src="js/main.js"></script>
-        <title>Cordova jQuery Mobile examples</title>
+        <title>Apache Cordova / jQuery Mobile Demo</title>
     </head>
     <body onload="init();">
-        <a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
-        <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
-        <img id="cameraImage" src="#" width="100" height="100" />
-        <a href="tests/tests-main.html">Run Tests</a>
+        <div id="mainPage" data-role="page">
+            <div data-role="header"><h1>Main Menu</h1></div> 
+            <div data-role="content">
+                <p>
+                    <!--<a href="#" id="cameraButton" data-role="button" data-inline="true">Take picture</a>
+                    <a href="#" id="accelerometerButton" data-role="button" data-inline="true">Get Accelerometer Data</a>
+                    <img id="cameraImage" src="#" width="100" height="100" />
+                    <a href="tests/tests-main.html" data-role="button" >Run Tests</a>-->
+                </p>
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#" id="cameraButton">Take picture</a></li>
+                    <li><a href="#" id="accelerometerButton">Get Accelerometer Data</a></li>
+                    <li><a href="tests/tests-main.html">Run Tests</a></li>
+                </ul>
+            </div> 
+	       <div data-role="footer"><h4>Page Footer</h4></div>  
+        </div>
+        <div id="testsPage" data-role="page">
+           <div data-role="header">Header</div> 
+	       <div data-role="content">Content</div> 
+	       <div data-role="footer">Footer</div>  
+        </div>
         <div id="popupMessage" data-role="popup"></div>
     </body>
 </html>
