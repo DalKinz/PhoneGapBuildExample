@@ -14,10 +14,17 @@ function onAccelerometerFail() {
     $('#popupMessage').popup('open');
 }
 
-function onDeviceReady(){
-    $('#cameraButton').bind('tap', function() {navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});});
+function getPicture(){
+    navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});
+}
 
-    $('#accelerometerButton').bind('tap', function() {navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);})
+function getAccelerometerData(){
+    navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);
+}
+
+function onDeviceReady(){
+    $('#cameraButton').bind('tap', getPicture());
+    $('#accelerometerButton').bind('tap', getAccelerometerData());
         
     alert('Device Name: ' + device.name     + '<br />' + 
             'Device Cordova: ' + device.cordova + '<br />' + 
