@@ -23,8 +23,8 @@ function getAccelerometerData(){
 }
 
 function onDeviceReady(){
-    $('#cameraButton').bind('tap', getPicture());
-    $('#accelerometerButton').bind('tap', getAccelerometerData());
+    $('#cameraButton').bind('tap', getPicture);
+    $('#accelerometerButton').bind('tap', getAccelerometerData);
         
     alert('Device Name: ' + device.name     + '<br />' + 
             'Device Cordova: ' + device.cordova + '<br />' + 

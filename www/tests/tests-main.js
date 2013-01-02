@@ -1,8 +1,6 @@
-test( "hello test", function() {
-    ok( 1 == "1", "Passed!" );
-});
+test('hello test', function() { ok(1 == '1','Passed!');});
 
-test( "getPicture-Success", function() {
+test('getPicture-Success', function() {
     getPicture();
-    ok($('#cameraImage').attr('src') == "1", "Passed!" );
+    ok($('#cameraImage').attr('src') == '1','Passed!');
 });
