@@ -34,17 +34,17 @@ function displayDeviceInformation(){
 function onDeviceReady(){
     $('#cameraButton').bind('tap', getPicture);
     $('#accelerometerButton').bind('tap', getAccelerometerData);
-    $('#videoButton').bind('tap',function(){alert('implement me!'});
+    $('#videoButton').bind('tap',function(){alert('implement me!')});
     $('#deviceButton').bind('tap', displayDeviceInformation);
-    $('#contactsButton').bind('tap',function(){alert('implement me!'});
-    $('#compassButton').bind('tap',function(){alert('implement me!'});
-    $('#connectionButton').bind('tap',function(){alert('implement me!'});
-    $('#fileButton').bind('tap',function(){alert('implement me!'});
-    $('#geolocationButton').bind('tap',function(){alert('implement me!'});
-    $('#mediaButton').bind('tap',function(){alert('implement me!'});
-    $('#notificationButton').bind('tap',function(){alert('implement me!'});
-    $('#splashScreenButton').bind('tap',function(){alert('implement me!'});
-    $('#storageButton').bind('tap',function(){alert('implement me!'});
+    $('#contactsButton').bind('tap',function(){alert('implement me!')});
+    $('#compassButton').bind('tap',function(){alert('implement me!')});
+    $('#connectionButton').bind('tap',function(){alert('implement me!')});
+    $('#fileButton').bind('tap',function(){alert('implement me!')});
+    $('#geolocationButton').bind('tap',function(){alert('implement me!')});
+    $('#mediaButton').bind('tap',function(){alert('implement me!')});
+    $('#notificationButton').bind('tap',function(){alert('implement me!')});
+    $('#splashScreenButton').bind('tap',function(){alert('implement me!')});
+    $('#storageButton').bind('tap',function(){alert('implement me!')});
 }
 
 function init(){
