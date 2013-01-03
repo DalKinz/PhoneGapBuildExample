@@ -31,12 +31,32 @@ function displayDeviceInformation(){
     $('#popupMessage').popup('open');
 }
 
+function onQueryContactsSuccess(contacts) {
+    for (var i=0; i<contacts.length; i++) {
+        $('#popupMessage').html('Display Name = ' + contacts[i].displayName);
+    }
+    
+    $('#popupMessage').popup('open');
+}
+
+function onQueryContactsError(){
+    $('#popupMessage').html('Query Contacts error');
+    $('#popupMessage').popup('open');
+}
+
+function queryContacts(){
+    var options = new ContactFindOptions();
+    options.filter="*"; 
+    var fields = ["displayName", "name"];
+    navigator.contacts.find(fields, onQueryContactsSuccess, onQueryContactsError, options);
+}
+
 function onDeviceReady(){
     $('#cameraButton').bind('tap', getPicture);
     $('#accelerometerButton').bind('tap', getAccelerometerData);
     $('#videoButton').bind('tap',function(){alert('implement me!')});
     $('#deviceButton').bind('tap', displayDeviceInformation);
-    $('#contactsButton').bind('tap',function(){alert('implement me!')});
+    $('#contactsButton').bind('tap',function(){queryContacts()});
     $('#compassButton').bind('tap',function(){alert('implement me!')});
     $('#connectionButton').bind('tap',function(){alert('implement me!')});
     $('#fileButton').bind('tap',function(){alert('implement me!')});
