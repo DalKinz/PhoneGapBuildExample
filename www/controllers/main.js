@@ -12,7 +12,6 @@ function onAccelerometerSuccess(acceleration) {
     $('#popupMessage').html('Acceleration X: ' + acceleration.x + '<br />' + 'Acceleration Y: ' + acceleration.y + '<br />' + 'Acceleration Z: ' + acceleration.z + '<br />' + 'Timestamp: ' + acceleration.timestamp);
     $('#popupMessage').popup('open');
 }
-
 function onAccelerometerFail() {
     $('#popupMessage').html('Accelerometer error');
     $('#popupMessage').popup('open');
@@ -31,6 +30,12 @@ function displayDeviceInformation(){
     $('#popupMessage').popup('open');
 }
 
+function displayNotification(){
+    navigator.notification.alert('Message','Title','Done');
+    navigator.notification.beep(3);
+    navigator.notification.vibrate(2000);
+}
+
 function onQueryContactsSuccess(contacts) {
     var contactsString;
     for (var i=0; i<contacts.length; i++) {
@@ -40,7 +45,6 @@ function onQueryContactsSuccess(contacts) {
     $('#popupMessage').html(contactsString);
     $('#popupMessage').popup('open');
 }
-
 function onQueryContactsError(){
     $('#popupMessage').html('Query Contacts error');
     $('#popupMessage').popup('open');
@@ -65,7 +69,7 @@ function onDeviceReady(){
     $('#fileButton').bind('tap',function(){alert('implement me!')});
     $('#geolocationButton').bind('tap',function(){alert('implement me!')});
     $('#mediaButton').bind('tap',function(){alert('implement me!')});
-    $('#notificationButton').bind('tap',function(){alert('implement me!')});
+    $('#notificationButton').bind('tap',displayNotification);
     $('#splashScreenButton').bind('tap',function(){alert('implement me!')});
     $('#storageButton').bind('tap',function(){alert('implement me!')});
 }
