@@ -30,11 +30,19 @@ function displayDeviceInformation(){
     $('#popupMessage').popup('open');
 }
 
+function onConfirm() {
+    $('#popupMessage').html('Right Answer!');
+    $('#popupMessage').popup('open');
+}
+
 function displayNotification(){
     navigator.notification.alert('Message','Title','Done');
     navigator.notification.beep(3);
     navigator.notification.vibrate(2000);
+    navigator.notification.confirm('Dallas is the greatest', onConfirm,'Title','Yes,No');
 }
+
+
 
 function onQueryContactsSuccess(contacts) {
     var contactsString;
