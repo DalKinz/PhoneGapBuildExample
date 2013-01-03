@@ -46,7 +46,8 @@ function onQueryContactsError(){
 
 function queryContacts(){
     var options = new ContactFindOptions();
-    options.filter="*"; 
+    options.filter="";
+    options.multiple=true;
     var fields = ["displayName", "name"];
     navigator.contacts.find(fields, onQueryContactsSuccess, onQueryContactsError, options);
 }
