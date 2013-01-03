@@ -32,10 +32,12 @@ function displayDeviceInformation(){
 }
 
 function onQueryContactsSuccess(contacts) {
+    var contactsString;
     for (var i=0; i<contacts.length; i++) {
-        $('#popupMessage').html('Display Name = ' + contacts[i].displayName);
+        contactsString += 'Display Name = ' + contacts[i].displayName + '<br />';
     }
     
+    $('#popupMessage').html(contactsString);
     $('#popupMessage').popup('open');
 }
 
