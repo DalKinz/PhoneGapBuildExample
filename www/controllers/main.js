@@ -1,3 +1,4 @@
+//Camera
 function onCameraSuccess(imageURI) {$('#cameraImage').attr('src', imageURI); }
 function onCameraFail(message) {
     $('#popupMessage').html('Failed because: ' + message);
@@ -8,6 +9,7 @@ function getPicture(){
     navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 100, destinationType: Camera.DestinationType.FILE_URI});
 }
 
+//Accelerometer
 function onAccelerometerSuccess(acceleration) {
     $('#popupMessage').html('Acceleration X: ' + acceleration.x + '<br />' + 'Acceleration Y: ' + acceleration.y + '<br />' + 'Acceleration Z: ' + acceleration.z + '<br />' + 'Timestamp: ' + acceleration.timestamp);
     $('#popupMessage').popup('open');
@@ -21,6 +23,7 @@ function getAccelerometerData(){
     navigator.accelerometer.getCurrentAcceleration(onAccelerometerSuccess, onAccelerometerFail);
 }
 
+//
 function displayDeviceInformation(){
     $('#popupMessage').html('Device Name: ' + device.name     + '<br />' + 
                             'Device Cordova: ' + device.cordova + '<br />' + 
@@ -36,7 +39,8 @@ function displayNotification(){
     navigator.notification.vibrate(2000);
 }
 
-function onQueryContactsSuccess(contacts) {
+
+function onGetContactsSuccess(contacts) {
     var contactsString;
     for (var i=0; i<contacts.length; i++) {
         contactsString += 'Display Name = ' + contacts[i].displayName + '<br />';
@@ -45,25 +49,43 @@ function onQueryContactsSuccess(contacts) {
     $('#popupMessage').html(contactsString);
     $('#popupMessage').popup('open');
 }
-function onQueryContactsError(){
+function onGetContactsError(){
     $('#popupMessage').html('Query Contacts error');
     $('#popupMessage').popup('open');
 }
 
-function queryContacts(){
+function getContacts(){
     var options = new ContactFindOptions();
-    options.filter="";
+    options.filter='';
     options.multiple=true;
-    var fields = ["displayName", "name"];
-    navigator.contacts.find(fields, onQueryContactsSuccess, onQueryContactsError, options);
+    var fields = ['displayName', 'name'];
+    navigator.contacts.find(fields, onGetContactsSuccess, onGetContactsError, options);
 }
+
+
+function onGetGeolocationSuccess(position) {
+    $('#')
+    var element = document.getElementById('geolocation');
+    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                        'Longitude: ' + position.coords.longitude     + '<br />' +
+                        '<hr />'      + element.innerHTML;
+}
+function onGetGeolocationError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+function getGeolocation(){
+    var watchID = navigator.geolocation.watchPosition(onGetGeolocationSuccess, onGetGeolocationError, { timeout: 30000 });
+}
+
 
 function onDeviceReady(){
     $('#cameraButton').bind('tap', getPicture);
     $('#accelerometerButton').bind('tap', getAccelerometerData);
     $('#videoButton').bind('tap',function(){alert('implement me!')});
     $('#deviceButton').bind('tap', displayDeviceInformation);
-    $('#contactsButton').bind('tap',function(){queryContacts()});
+    $('#contactsButton').bind('tap',function(){getContacts()});
     $('#compassButton').bind('tap',function(){alert('implement me!')});
     $('#connectionButton').bind('tap',function(){alert('implement me!')});
     $('#fileButton').bind('tap',function(){alert('implement me!')});
