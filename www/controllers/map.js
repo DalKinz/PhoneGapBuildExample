@@ -73,6 +73,7 @@ function getGeolocation(){
 
 
 function onDeviceReady(){
+    alert('device ready');
     var latlng = new google.maps.LatLng(-25.363882,131.044922);
     var myOptions = {
       zoom: 4,
