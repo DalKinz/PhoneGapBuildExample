@@ -89,7 +89,6 @@ function onDeviceReady(){
     $('#compassButton').bind('tap',function(){alert('implement me!')});
     $('#connectionButton').bind('tap',function(){alert('implement me!')});
     $('#fileButton').bind('tap',function(){alert('implement me!')});
-    $('#geolocationButton').bind('tap',function(){alert('implement me!')});
     $('#mediaButton').bind('tap',function(){alert('implement me!')});
     $('#notificationButton').bind('tap',displayNotification);
     $('#splashScreenButton').bind('tap',function(){alert('implement me!')});
