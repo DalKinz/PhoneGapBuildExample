@@ -74,6 +74,13 @@ function getGeolocation(){
 
 function onDeviceReady(){
     alert('device ready');
+    
+    watchId = getGeoLocation();
+}
+
+function init(){
+    document.addEventListener("deviceready", onDeviceReady,false);
+    
     var latlng = new google.maps.LatLng(-25.363882,131.044922);
     var myOptions = {
       zoom: 4,
@@ -82,11 +89,8 @@ function onDeviceReady(){
       disableDefaultUI: true
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-    watchId = getGeoLocation();
-}
-
-function init(){
-    document.addEventListener("deviceready", onDeviceReady,false);
+    
+    alert('map should be here');
 }
 
 function contains(array, item) {
