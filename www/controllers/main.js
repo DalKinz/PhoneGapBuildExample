@@ -63,18 +63,33 @@ function getContacts(){
     navigator.contacts.find(fields, onGetContactsSuccess, onGetContactsError, options);
 }
 
+function getVideoSuccess(mediaFiles) {
+    var i, len;
+    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        $('#popupMessage').html('Path: ' + mediaFile.fullPath + '<br/>Name: ' + mediaFile.name);
+        $('#popupMessage').popup('open');       
+    }       
+}
+function getVideoError(error) {
+    $('#popupMessage').html('An error occurred during capture: ' + error.code);
+    $('#popupMessage').popup('open');
+}
+
+function getVideo() {
+    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
+}
+
 function onDeviceReady(){
     $('#cameraButton').bind('tap', getPicture);
     $('#accelerometerButton').bind('tap', getAccelerometerData);
-    $('#videoButton').bind('tap',function(){alert('implement me!')});
+    $('#videoButton').bind('tap',getVideo);
     $('#deviceButton').bind('tap', displayDeviceInformation);
     $('#contactsButton').bind('tap',function(){getContacts()});
     $('#compassButton').bind('tap',function(){alert('implement me!')});
     $('#connectionButton').bind('tap',function(){alert('implement me!')});
     $('#fileButton').bind('tap',function(){alert('implement me!')});
     $('#mediaButton').bind('tap',function(){alert('implement me!')});
-    $('#notificationButton').bind('tap',displayNotification);
-    $('#splashScreenButton').bind('tap',function(){alert('implement me!')});
+    $('#notificationButton').bind('tap',displayNotification);    
     $('#storageButton').bind('tap',function(){alert('implement me!')});
 }
 
