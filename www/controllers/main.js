@@ -49,6 +49,7 @@ function onGetContactsSuccess(contacts) {
     $('#popupMessage').html(contactsString);
     $('#popupMessage').popup('open');
 }
+
 function onGetContactsError(){
     $('#popupMessage').html('Query Contacts error');
     $('#popupMessage').popup('open');
@@ -61,24 +62,6 @@ function getContacts(){
     var fields = ['displayName', 'name'];
     navigator.contacts.find(fields, onGetContactsSuccess, onGetContactsError, options);
 }
-
-
-function onGetGeolocationSuccess(position) {
-    $('#')
-    var element = document.getElementById('geolocation');
-    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                        'Longitude: ' + position.coords.longitude     + '<br />' +
-                        '<hr />'      + element.innerHTML;
-}
-function onGetGeolocationError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
-
-function getGeolocation(){
-    var watchID = navigator.geolocation.watchPosition(onGetGeolocationSuccess, onGetGeolocationError, { timeout: 30000 });
-}
-
 
 function onDeviceReady(){
     $('#cameraButton').bind('tap', getPicture);

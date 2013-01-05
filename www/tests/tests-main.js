@@ -5,7 +5,7 @@
 
 
 //module('deviceIndependent');
-test('hello test', function() { ok(1 == '1','Passed!');});
+test('hello test', function() { ok(1 == '1','Should pass');});
 
 //module('deviceDependent', {
 //  setup: function() {
@@ -19,6 +19,10 @@ test('hello test', function() { ok(1 == '1','Passed!');});
 //});
 test('getPicture-Success', function() {
     getPicture();
-    ok($('#cameraImage').attr('src') == '1','Passed!');
-    ok(true, 'once extra assert per test');
+    ok($('#cameraImage').attr('src') != '#');
+});
+
+test('getAccelerometerData-Success', function() {
+    getAccelerometerData();
+    ok($('#popupMessage').html.contains('Acceleration X:'))
 });

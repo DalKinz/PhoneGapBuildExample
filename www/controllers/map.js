@@ -89,8 +89,6 @@ function init(){
       disableDefaultUI: true
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-    
-    alert('map should be here');
 }
 
 function contains(array, item) {
