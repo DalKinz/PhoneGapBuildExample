@@ -84,7 +84,7 @@ function onDeviceReady(){
     $('#accelerometerButton').bind('tap', getAccelerometerData);
     $('#videoButton').bind('tap',getVideo);
     $('#deviceButton').bind('tap', displayDeviceInformation);
-    $('#contactsButton').bind('tap',function(){getContacts()});
+    $('#contactsButton').bind('tap',getContacts);
     $('#compassButton').bind('tap',function(){alert('implement me!')});
     $('#connectionButton').bind('tap',function(){alert('implement me!')});
     $('#fileButton').bind('tap',function(){alert('implement me!')});
