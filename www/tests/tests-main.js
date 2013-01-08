@@ -1,28 +1,25 @@
-//var phoneGapReady = false;
-//var timeoutCounter = 0;
+function onDeviceReady() {
+    test('hello test', function () { ok(1 == '1', 'Should pass'); });
 
-//document.addEventListener("deviceready",function(){phoneGapReady = true},false);
+    test('getPicture-Success', function () {
+        getPicture();
+        ok($('#cameraImage').attr('src') != '#');
+    });
 
+    test('getAccelerometerData-Success', function () {
+        getAccelerometerData();
+        ok($('#popupMessage').html.contains('Acceleration X:'))
+    });
+}
 
-//module('deviceIndependent');
-test('hello test', function() { ok(1 == '1','Should pass');});
-
-//module('deviceDependent', {
-//  setup: function() {
-//      if (timeoutCounter > 4) return;
-      
-//      while (!phoneGapReady){
-//          timeoutCounter++
-//          setTimeout(this.setup, 1000);
-//      }
-//  }
-//});
-test('getPicture-Success', function() {
-    getPicture();
-    ok($('#cameraImage').attr('src') != '#');
+$.getScript("qunit-1.10.0.js", function (data, textStatus, jqxhr) {
+    console.log(data); //data returned   
+    console.log(textStatus); //success   
+    console.log(jqxhr.status); //200   
+    console.log('Loaded Qunit');
+    
+    $(document).ready(document.addEventListener("deviceready", onDeviceReady, false));
 });
 
-test('getAccelerometerData-Success', function() {
-    getAccelerometerData();
-    ok($('#popupMessage').html.contains('Acceleration X:'))
-});
+
+
