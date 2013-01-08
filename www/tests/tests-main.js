@@ -12,14 +12,17 @@ function onDeviceReady() {
     });
 }
 
-$.getScript("qunit-1.10.0.js", function (data, textStatus, jqxhr) {
+$(document).ready(document.addEventListener("deviceready", onDeviceReady, false));
+
+/*$.getScript("qunit-1.10.0.js", function (data, textStatus, jqxhr) {
+    alert('loading qunit');
     console.log(data); //data returned   
     console.log(textStatus); //success   
     console.log(jqxhr.status); //200   
     console.log('Loaded Qunit');
     
-    $(document).ready(document.addEventListener("deviceready", onDeviceReady, false));
-});
+    
+});*/
 
 
 
